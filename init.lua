@@ -1,0 +1,12 @@
+require('plugins')
+require('settings')
+require('keybindings')
+require('style')
+require('mason-config')
+require('lsp-config')
+require('code-completion-config')
+require('syntax-highlight-config')
+require('file-finder-config')
+require('statusbar-config')
+require('file-explorer-config')
+
