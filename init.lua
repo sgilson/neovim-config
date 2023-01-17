@@ -9,4 +9,4 @@ require('syntax-highlight-config')
 require('file-finder-config')
 require('statusbar-config')
 require('file-explorer-config')
-
+require('bufferline-config')
