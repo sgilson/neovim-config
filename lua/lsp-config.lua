@@ -2,6 +2,7 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
+vim.g.mapleader=' '
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', 'gE', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', 'ge', vim.diagnostic.goto_next, opts)
@@ -50,13 +51,15 @@ lspconfig.gopls.setup {
             staticcheck = true,
         },
     },
+    on_attach = lsp_flags,
 }
 
 -- Rust
 local rt = require('rust-tools')
 rt.setup({
     server = {
-        on_attach = function(_, bufnr)
+        on_attach = function(client, bufnr)
+            on_attach(client, bufnr)
             -- Hover actions
             vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
             -- Code action groups
