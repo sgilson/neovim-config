@@ -38,7 +38,6 @@ end
 local lspconfig = require 'lspconfig'
 local util = require 'lspconfig/util'
 
--- Golang
 lspconfig.gopls.setup {
     cmd = {'gopls', 'serve'},
     filetypes = {'go', 'gomod'},
@@ -51,10 +50,9 @@ lspconfig.gopls.setup {
             staticcheck = true,
         },
     },
-    on_attach = lsp_flags,
+    on_attach = on_attach,
 }
 
--- Rust
 local rt = require('rust-tools')
 rt.setup({
     server = {
@@ -69,3 +67,11 @@ rt.setup({
         end,
     },
 })
+
+lspconfig.jsonls.setup{
+    on_attach = on_attach
+}
+lspconfig.yamlls.setup{
+    on_attach = on_attach
+}
+
