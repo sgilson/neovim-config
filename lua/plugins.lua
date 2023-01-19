@@ -43,14 +43,18 @@ return require('packer').startup(function(use)
 
     -- Telescope
     use { 
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.0',
         requires = { {'nvim-lua/plenary.nvim'} },
     }
 
     -- Lualine information / Status bar
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        requires = { 
+            'kyazdani42/nvim-web-devicons',
+            opt = true 
+        }
     }
 
     -- Bufferline
@@ -62,4 +66,13 @@ return require('packer').startup(function(use)
 
     -- Style
     use 'folke/tokyonight.nvim'	
+
+    -- Mini
+    use {
+        'kylechui/nvim-surround',
+        tag = '*', 
+        config = function()
+            require('nvim-surround').setup{ }
+        end,
+    }
 end)
